@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Yelpcamp</title>
+		<!-- Adding BOOTSTRAP cdn -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+<link rel='stylesheet' href='/stylesheets/main.css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-2.2.4.js"integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="crossorigin="anonymous"></script>	<!-- jquery for drop down of navbar -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>		<!-- js file for dropdown in navbar -->
+	</head>
+	<body>
+		<div class="navbar navbar-default">			<!-- 1 -->
+				<!-- 6 -->
+			<div class="navbar-header">			<!-- 2 -->
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <!-- 8 -->
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      	</button>
+			
+			<a id='brand'class="navbar-brand" href="/"><i class="fas fa-campground"></i> YelpCamp</a><!-- 	3 -->
+	    	</div>
+	    	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">			<!-- 7 -->
+				<ul class='nav navbar-nav'>
+					<li><a href='/campgrounds'>Discover</a></li>
+					<li><a href='/about'>About </a></li>
+				</ul>
+		        <ul class="nav navbar-nav navbar-right">	<!-- 5 -->
+					<!--if no user then show register and login only else show logout 					 -->
+					<% if(!currentuser){%>
+		       			<li><a href="/register">Sign Up</a></li>
+		       			<li><a href="/login">Login</a></li>
+					<% }else{%>
+						<li><a>SignedIn As <%=currentuser.username%></a></li>
+						<li><a href='/logout'>Log Out</a></li>
+					<% }%>
+		    	</ul>
+		        
+			</div>
+
+	
+		</div>
+		<div class='container'>
+			<%if(error && error.length>0){%>
+				<div class="alert alert-danger" role="alert"><%=error%></div>
+			<%}%>
+			<%if(success && success.length>0){%>
+				<div class="alert alert-success" role="alert"><%=success%></div>
+			<%}%>
+		</div>
+
+	
